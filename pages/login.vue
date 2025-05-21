@@ -6,18 +6,21 @@
 </template>
 
 <script setup lang="ts">
+definePageMeta({
+    middleware: 'admin',
+});
 const password = ref('')
-
-const router = useRouter()
 
 const authenticate = async () => {
     const { data, error } = await useFetch('api/auth/login', {
         method: 'POST',
         body: { password: password.value }
     })
+
+    if (!error.value) {
+        await navigateTo('/admin');
+    }
+    return;
 }
 
-definePageMeta({
-    middleware: 'admin',
-});
 </script>
