@@ -5,8 +5,6 @@ export default defineEventHandler(async (event) => {
     const { count } = await readBody(event)
 
     try {
-        const db = useStorage('db')
-
         const products = []
 
         for (let i = 0; i < count; i++) {
@@ -30,10 +28,9 @@ export default defineEventHandler(async (event) => {
                 }))
             }
             products.push(parsed.data)
-            await db.setItem(parsed.data.id, parsed.data)
         }
 
-        return { success: true, products }
+        return { products }
     } catch (error) {
         return sendError(event, createError({
             statusCode: 500,

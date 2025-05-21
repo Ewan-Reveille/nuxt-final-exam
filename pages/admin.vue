@@ -12,10 +12,17 @@ definePageMeta({
 });
 
 const generateProducts = async (nbrOfProducts: number = 200) => {
-    const { data, error, loading } = await useFetch('/api/products', {
+    const { data, error } = await useFetch('/api/products', {
         method: 'POST',
         body: { count: nbrOfProducts }
-    })
+    });
+
+    if (data.value && Array.isArray(data.value.products)) {
+        localStorage.removeItem('products');
+        localStorage.setItem('products', JSON.stringify(data.value.products));
+    } else {
+        console.error('Failed to fetch:', error || data.value);
+    }
 }
 
 </script>

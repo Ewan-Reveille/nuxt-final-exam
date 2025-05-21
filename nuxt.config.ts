@@ -9,14 +9,6 @@ export default defineNuxtConfig({
     '@nuxt/scripts',
     '@nuxt/ui'
   ],
-  nitro: {
-    storage: {
-      db: {
-        driver: 'fs',
-        base: './data/db'
-      }
-    },
-  },
   css: ['~/assets/css/main.css'],
   runtimeConfig: {
     public:{
