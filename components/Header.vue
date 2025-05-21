@@ -1,7 +1,7 @@
 <template>
   <header class="w-full flex justify-evenly py-5 bg-gray-700">
-    <div class="flex flex-nowrap">
-      <p class="mr-5 font-bold">Store Page</p>
+    <div class="flex flex-nowrap items-center">
+      <p class="mr-12 font-bold text-2xl">Store Website</p>
       <div class="flex gap-2 flex-nowrap font-semibold">
         <NuxtLink to="/">
           Main Page
