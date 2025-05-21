@@ -1,4 +1,4 @@
-import { Product, ProductSchema } from "~/types/product";
+import { Product } from "~/types/product";
 export default defineEventHandler(async(event) => {
     const query = getQuery(event);
     const maxLimit = 200;
