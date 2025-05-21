@@ -1,7 +1,7 @@
 export default defineEventHandler(async (event) => {
     const { password } = await readBody(event);
-    const config = useRuntimeConfig();
-    
+    const config = useRuntimeConfig().public;
+
     if (!password) {
         setResponseStatus(event, 401);
         return { error: "Please, set a password" };
